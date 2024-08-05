@@ -35,7 +35,7 @@ This project is a Qt application that utilizes the QCustomPlot library for creat
 
 
 ## **Getting Started:**
-1.Open Qt Creator: Launch the Qt Creator IDE:
+1.Open Qt Creator: Launch the Qt Creator IDE.
 2.Open the Project:
 
     Go to File -> Open File or Project.
