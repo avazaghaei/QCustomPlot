@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Source/Icon/export.png</file>
+        <file>Source/Icon/import.png</file>
+        <file>Source/Icon/newWindow.png</file>
+        <file>Source/Icon/reverse.png</file>
+    </qresource>
+</RCC>
