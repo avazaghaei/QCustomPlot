@@ -18,7 +18,7 @@ void maniWindow::set_ftom()
 {
     QGridLayout* grl = new QGridLayout();
 
-    grl->addWidget(classCustomPlot->customPlot, 0, 0, 2, 1);
+    grl->addWidget(classCustomPlot->ClassCustomPlot, 0, 0, 2, 1);
     grl->addWidget(classSettings->grbForm, 0, 1);
     grl->addWidget(classZoomSettings->grbForm, 1, 1);
 

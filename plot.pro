@@ -22,6 +22,7 @@ SOURCES += \
     GUI/Settings/zoomSettings.cpp \
     GUI/Size/customize.cpp \
     Library/QCustomPlot/qcustomplot.cpp \
+    Process/Encryption/simplecrypt.cpp \
     Process/Process.cpp \
     main.cpp
 
@@ -32,6 +33,7 @@ HEADERS += \
     GUI/Settings/zoomSettings.h \
     GUI/Size/customize.h \
     Library/QCustomPlot/qcustomplot.h \
+    Process/Encryption/simplecrypt.h \
     Process/Process.h
 
 # Default rules for deployment.

@@ -318,3 +318,15 @@ void settings::slotReverseXAxis()
     }
 }
 
+void settings::slotSetValueDelta(double x, double y)
+{
+    lblDeltaX->setText("Delta X : " + QString::number(x));
+    lblDeltaY->setText("Delta Y : " + QString::number(y));
+}
+
+void settings::slotReverseXAxisMenuRequest()
+{
+    chkbReverseXaxis->setChecked(!chkbReverseXaxis->isChecked());
+    chkbReverseXaxis->clicked();
+}
+

@@ -49,5 +49,11 @@ void Process::set_connections()
     //reset zoom
     connect(classZoomSettings, &zoomSettings::signalResetZoom, classCustomPlot, &myQCustomPlot::slotAutoScale);
 
+    //set value delta
+    connect(classCustomPlot, &myQCustomPlot::signalSetValueDelta, classSettings, &settings::slotSetValueDelta);
+
+    //reverse x-axis from menu request
+    connect(classCustomPlot, &myQCustomPlot::signalReverseXAxis, classSettings, &settings::slotReverseXAxisMenuRequest);
+
 
 }

@@ -112,6 +112,11 @@ private slots:
     void slotReverseXAxis();
 
 
+public slots:
+    void slotSetValueDelta(double x, double y);
+    void slotReverseXAxisMenuRequest();
+
+
 };
 
 #endif // SETTINGS_H
