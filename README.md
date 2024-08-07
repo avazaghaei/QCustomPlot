@@ -2,7 +2,8 @@
 This Qt C++ application leverages the QCustomPlot library to create dynamic and interactive data visualizations. By incorporating a rich set of QCustomPlot features, including point selection, plotting, axis customization, zoom, and area selection, the application offers a robust platform for data exploration. To enhance functionality, custom modifications have been made to the QCustomPlot library, enabling precise point selection and other tailored interactions.
 
 The application prioritizes code clarity and efficiency through the exclusive use of code-based GUI development. This approach fosters clean code practices, increased reusability, and accelerated development cycles compared to traditional drag-and-drop design methods. However, the current fixed-size layout presents limitations that will be addressed in future iterations to explore dynamic layout solutions and provide a comprehensive comparison of different approaches.
-## **Features:**	
+## **Features:**
+####QCustomPlot	
 * **Data Handling:**
 
     * Generate random data: Create synthetic data for testing and visualization purposes.
@@ -23,7 +24,23 @@ The application prioritizes code clarity and efficiency through the exclusive us
 
 * **Additional Features:**
 
-    *Custom QCustomPlot modifications: Enhancements to the underlying library for specialized visualizations or performance optimizations.
+    * Custom QCustomPlot modifications: Enhancements to the underlying library for specialized visualizations or performance optimizations.
+####Code-Based GUI Development Advantages
+* **Flexibility and customization:**
+
+	* Easily modify and adapt the GUI to meet changing requirements without being constrained by visual design tools.
+	
+* **Reusability:**
+
+	* Create reusable UI components and design patterns that can be applied across multiple projects.
+	
+* **Accelerated development:**
+
+	* Streamlined GUI development process leading to faster time-to-market.
+	
+* **RVersion control integration:**
+
+	* Seamlessly manage GUI changes alongside code changes using version control systems.
 	
 **Note:** This project relies on a custom QCustomPlot build. Compatibility with standard QCustomPlot versions is not guaranteed.
 ## **Getting Started:**
