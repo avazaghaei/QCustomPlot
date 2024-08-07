@@ -3,7 +3,7 @@ This Qt C++ application leverages the QCustomPlot library to create dynamic and 
 
 The application prioritizes code clarity and efficiency through the exclusive use of code-based GUI development. This approach fosters clean code practices, increased reusability, and accelerated development cycles compared to traditional drag-and-drop design methods. However, the current fixed-size layout presents limitations that will be addressed in future iterations to explore dynamic layout solutions and provide a comprehensive comparison of different approaches.
 ## **Features:**
-####QCustomPlot	
+#### QCustomPlot	
 * **Data Handling:**
 
     * Generate random data: Create synthetic data for testing and visualization purposes.
@@ -25,7 +25,8 @@ The application prioritizes code clarity and efficiency through the exclusive us
 * **Additional Features:**
 
     * Custom QCustomPlot modifications: Enhancements to the underlying library for specialized visualizations or performance optimizations.
-####Code-Based GUI Development Advantages
+
+#### Code-Based GUI Development Advantages
 * **Flexibility and customization:**
 
 	* Easily modify and adapt the GUI to meet changing requirements without being constrained by visual design tools.
