@@ -115,6 +115,7 @@ private slots:
 public slots:
     void slotSetValueDelta(double x, double y);
     void slotReverseXAxisMenuRequest();
+    void slotAddedPoint();
 
 
 };

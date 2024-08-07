@@ -330,3 +330,11 @@ void settings::slotReverseXAxisMenuRequest()
     chkbReverseXaxis->clicked();
 }
 
+void settings::slotAddedPoint()
+{
+    if(rdBtnAutoScale->isChecked())
+    {
+        rdBtnAutoScale->clicked();
+    }
+}
+
