@@ -140,15 +140,18 @@ void myQCustomPlot::setContextMenu()
 
 void myQCustomPlot::initFullWindow()
 {
-    widgetFullWindow = new QWidget();
-    widgetFullWindow->setFixedWidth(ClassCustomize->parent_width);
-    widgetFullWindow->setFixedHeight(ClassCustomize->parent_height*0.95);
 
-
-    ClassNewFullCustomPlot = initQCustomPlot();
-    ClassNewFullCustomPlot->setFixedWidth(ClassCustomize->parent_width);
-    ClassNewFullCustomPlot->setFixedHeight(ClassCustomize->parent_height*0.9);
-    ClassNewFullCustomPlot->setParent(widgetFullWindow);
+    {
+        widgetFullWindow = new QWidget();
+        widgetFullWindow->setFixedWidth(ClassCustomize->parent_width);
+        widgetFullWindow->setFixedHeight(ClassCustomize->parent_height*0.95);
+    }
+    {
+        ClassNewFullCustomPlot = initQCustomPlot();
+        ClassNewFullCustomPlot->setFixedWidth(ClassCustomize->parent_width);
+        ClassNewFullCustomPlot->setFixedHeight(ClassCustomize->parent_height*0.9);
+        ClassNewFullCustomPlot->setParent(widgetFullWindow);
+    }
 }
 
 
