@@ -358,7 +358,7 @@ void myQCustomPlot::clickedGraph(QMouseEvent *event)
             deltaX = firstX - secondX;
             deltaY = firstY - secondY;
 
-            emit signalSetValueDelta(x, y);
+            emit signalSetValueDelta(deltaX, deltaY);
         }
     }
     plot();

@@ -13,12 +13,12 @@
 #include <GUI/QCustomPlot/myQCustomPlot.h>
 #include <GUI/Settings/settings.h>
 #include <GUI/Settings/zoomSettings.h>
-
+#include <GUI/Size/customize.h>
 
 class maniWindow : public QWidget
 {
 private:
-
+    customize* classCustomize;
     //Classes
     myQCustomPlot* ClassCustomPlot;
     settings*      ClassSettings;

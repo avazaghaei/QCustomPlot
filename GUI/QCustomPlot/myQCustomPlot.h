@@ -60,8 +60,8 @@ private:
     /*!
      * \brief Calculate and emit point difference (delta)
      */
-    double deltaX;
-    double deltaY;
+    double deltaX = 0;
+    double deltaY = 0;
 
 
     QAction* actReverse;

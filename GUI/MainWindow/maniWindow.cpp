@@ -3,8 +3,11 @@
 
 maniWindow::maniWindow(QWidget *parent) : QWidget(parent)
 {
+
     init_classes();
     set_ftom();
+
+    this->setStyleSheet(classCustomize->formStylSheet);
 }
 
 void maniWindow::init_classes()
@@ -12,6 +15,7 @@ void maniWindow::init_classes()
     ClassCustomPlot   = myQCustomPlot::getInstance();
     ClassSettings     = settings::getInstance();
     ClassZoomSettings = zoomSettings::getInstance();
+    classCustomize = new customize();
 }
 
 void maniWindow::set_ftom()
