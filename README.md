@@ -46,6 +46,7 @@
 * Qt framework:
 	
 	1.this applicarion is cross-platform so you can run it in any opirating systems like, Linux, Windowsm, etc.
+	
 	2.you can run it in boteh Debug, and Release mode.
 	
 ## **Installation:**
