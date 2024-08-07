@@ -1,21 +1,29 @@
 #ifndef ZOOMSETTINGS_H
 #define ZOOMSETTINGS_H
 
+/*!
+  Core libraries that are needed
+ */
 #include <QObject>
 #include <QPushButton>
 #include <QGroupBox>
 #include <QGridLayout>
 
+/*!
+  Custom classes for efficient handling
+ */
 #include <GUI/Size/customize.h>
+
 class zoomSettings : public QObject
 {
     Q_OBJECT
 private:
+//Variables
 
     //Classes
     customize* classCustomize;
 
-    //GUI Elements
+//GUI Elements
 
     //push buttons
     QPushButton* btnZoomIn;
@@ -26,29 +34,76 @@ private:
     //spacer
     QSpacerItem* spacerZoomSettings;
 
+/***********************************************************/
+//Functions
 
+    /*!
+     * \brief Instantiate custom class objects
+     */
+    void initClasses();
 
-    //functions
-    void init_classes();
-    void init_pushButtons();
-    void init_groupBoxes();
-    void init_spacer();
-    void set_form();
+    /*!
+     * \brief Instantiate custom push buttons
+     */
+    void initPushButtons();
 
-    void set_connections();
+    /*!
+     * \brief Instantiate custom group boxes
+     */
+    void initGroupBoxes();
+
+    /*!
+     * \brief Instantiate custom spacer
+     */
+    void initSpacer();
+
+    /*!
+     * \brief Configure complete form layout and components
+     */
+    void setForm();
+
+    /*!
+     * \brief Establish object relationships and dependencies
+     */
+    void setConnections();
 
 public:
-    //GUI Elements
-    //group box
+//GUI Elements
+
+    /*!
+     * \brief Expose object for external configuration
+     */
     QGroupBox* grbForm;
 
+    /*!
+     * \brief Singleton is a creational design pattern that lets you ensure that a class has only one instance, while providing a global access point to this instance.
+     * Enforce single instance and global access point
+     * \return
+     */
     static zoomSettings* getInstance();
+
+
     zoomSettings();
 
 signals:
+    /*!
+     * \brief Enable plot magnification
+     */
     void signalZoomIn();
+
+    /*!
+     * \brief Enable plot reduction
+     */
     void signalZoomOut();
+
+    /*!
+     * \brief Interactive plot area selection
+     */
     void signalAreaSelection();
+
+    /*!
+     * \brief Interactive plot area selection
+     */
     void signalResetZoom();
 };
 

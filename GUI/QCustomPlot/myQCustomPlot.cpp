@@ -226,7 +226,7 @@ void myQCustomPlot::slotReverseXAxis(bool status)
     plot();
 }
 
-void myQCustomPlot::slotFixDisplay(bool status)
+void myQCustomPlot::slotEnablePointSelection(bool status)
 {
     if(status)
     {

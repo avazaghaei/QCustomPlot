@@ -10,25 +10,25 @@ settings *settings::getInstance()
 
 settings::settings()
 {
-    init_classes();
-    init_labels();
-    init_checkBoxes();
-    init_spinBoxes();
-    init_radioButtons();
-    init_pushButtons();
-    init_groupBoxes();
+    initClasses();
+    initLabels();
+    initCheckBoxes();
+    initSpinBoxes();
+    initRadioButtons();
+    initPushButtons();
+    initGroupBoxes();
 
-    set_form();
-    set_connections();
+    setForm();
+    setConnections();
 }
 
 
-void settings::init_classes()
+void settings::initClasses()
 {
     classCustomize = new customize();
 }
 
-void settings::init_labels()
+void settings::initLabels()
 {
     lblYaxisPlacement = new QLabel("Y-axis Placement:");
     lblScalingMode    = new QLabel("Scaling Mode:");
@@ -55,16 +55,16 @@ void settings::init_labels()
     }
 }
 
-void settings::init_checkBoxes()
+void settings::initCheckBoxes()
 {
     chkbCustomTicks  = new QCheckBox("Custom Ticks");
-    chkbFixDisplay   = new QCheckBox("Enable point selection mode");
+    chkbEnablePointSelection   = new QCheckBox("Enable point selection mode");
     chkbReverseXaxis = new QCheckBox("Reverse x axis");
 
     const int n = 3;
     QCheckBox* lstChechBoxes[n] =
     {
-        chkbCustomTicks, chkbFixDisplay, chkbReverseXaxis
+        chkbCustomTicks, chkbEnablePointSelection, chkbReverseXaxis
     };
 
 
@@ -79,7 +79,7 @@ void settings::init_checkBoxes()
 }
 
 
-void settings::init_spinBoxes()
+void settings::initSpinBoxes()
 {
     dsbMaximumX   = new QDoubleSpinBox;
     dsbMinimumX   = new QDoubleSpinBox;
@@ -132,7 +132,7 @@ void settings::init_spinBoxes()
     dsbMaximumY->setDisabled(true);
 }
 
-void settings::init_radioButtons()
+void settings::initRadioButtons()
 {
     rdBtnLeftAxis    = new QRadioButton("Left");
     rdBtnRightAxis   = new QRadioButton("Right");
@@ -165,7 +165,7 @@ void settings::init_radioButtons()
     rdBtnLeftAxis->setChecked(true);
 }
 
-void settings::init_pushButtons()
+void settings::initPushButtons()
 {
     btnSavePlotImage = new QPushButton("Save Plot Image");
 
@@ -176,7 +176,7 @@ void settings::init_pushButtons()
     btnSavePlotImage->setStyleSheet(classCustomize->btnStylSheet);
 }
 
-void settings::init_groupBoxes()
+void settings::initGroupBoxes()
 {
     grbForm = new QGroupBox();
 
@@ -187,7 +187,7 @@ void settings::init_groupBoxes()
     grbForm->setSizePolicy(classCustomize->spFixed);
 }
 
-void settings::set_form()
+void settings::setForm()
 {
     QGridLayout* grl = new QGridLayout();
 
@@ -211,7 +211,7 @@ void settings::set_form()
     grl->addWidget(chkbCustomTicks   , 4, 0);
     grl->addWidget(sbCustomTicks     , 4, 1);
 
-    grl->addWidget(chkbFixDisplay    , 5, 0);
+    grl->addWidget(chkbEnablePointSelection    , 5, 0);
     grl->addWidget(lblDeltaX         , 5, 1);
     grl->addWidget(lblDeltaY         , 5, 2);
 
@@ -225,7 +225,7 @@ void settings::set_form()
 
 }
 
-void settings::set_connections()
+void settings::setConnections()
 {
     {
         connect(rdBtnRightAxis, &QRadioButton::clicked, this, &settings::signalRightYAxis);
@@ -255,7 +255,7 @@ void settings::set_connections()
     }
     {
         //Enable point selection mode
-        connect(chkbFixDisplay   , &QCheckBox::clicked, this, &settings::signalFixDisplay);
+        connect(chkbEnablePointSelection   , &QCheckBox::clicked, this, &settings::signalEnablePointSelection);
     }
 }
 

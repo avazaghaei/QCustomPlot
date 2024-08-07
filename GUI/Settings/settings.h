@@ -45,7 +45,7 @@ private:
     //check boxes
     QCheckBox* chkbCustomTicks;
     QCheckBox* chkbReverseXaxis;
-    QCheckBox* chkbFixDisplay;
+    QCheckBox* chkbEnablePointSelection;
 
     //spin boxes
     QDoubleSpinBox* dsbMaximumX;
@@ -70,48 +70,48 @@ private:
     /*!
      * \brief Instantiate custom class objects
      */
-    void init_classes();
+    void initClasses();
 
 
     /*!
      * \brief Instantiate custom labels
      */
-    void init_labels();
+    void initLabels();
 
     /*!
      * \brief Instantiate custom check boxes
      */
-    void init_checkBoxes();
+    void initCheckBoxes();
 
     /*!
      * \brief Instantiate custom spin boxes
      */
-    void init_spinBoxes();
+    void initSpinBoxes();
 
     /*!
      * \brief Instantiate custom redio buttons
      */
-    void init_radioButtons();
+    void initRadioButtons();
 
     /*!
      * \brief Instantiate custom push buttons
      */
-    void init_pushButtons();
+    void initPushButtons();
 
     /*!
      * \brief Instantiate custom group boxes
      */
-    void init_groupBoxes();
+    void initGroupBoxes();
 
     /*!
      * \brief Configure complete form layout and components
      */
-    void set_form();
+    void setForm();
 
     /*!
      * \brief Establish object relationships and dependencies
      */
-    void set_connections();
+    void setConnections();
 
 public:
 //GUI Elements
@@ -180,7 +180,7 @@ signals:
      * \brief Signal for enabling point selection
      * \param status
      */
-    void signalFixDisplay(bool status);
+    void signalEnablePointSelection(bool status);
 
 
 private slots:

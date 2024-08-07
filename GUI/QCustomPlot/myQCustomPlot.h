@@ -195,10 +195,10 @@ public slots:
     void slotReverseXAxis(bool status);
 
     /*!
-     * \brief Optimized plot scaling for precise point selection
+     * \brief enabling point selection
      * \param status
      */
-    void slotFixDisplay(bool status);
+    void slotEnablePointSelection(bool status);
 
     /*!
      * \brief Enable plot magnification

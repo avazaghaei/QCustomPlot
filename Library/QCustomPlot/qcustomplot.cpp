@@ -29903,11 +29903,9 @@ void QCPItemTracer::draw(QCPPainter *painter)
 bool QCPItemTracer::updatePosition(double y)
 {
 
-    qDebug() << "enter :";
 
   if (mGraph)
   {
-    qDebug() << "************* :";
     if (mParentPlot->hasPlottable(mGraph))
     {
       if (mGraph->data()->size() > 1)
