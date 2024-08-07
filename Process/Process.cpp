@@ -56,4 +56,7 @@ void Process::set_connections()
     connect(classCustomPlot, &myQCustomPlot::signalReverseXAxis, classSettings, &settings::slotReverseXAxisMenuRequest);
 
 
+    //point added event
+    connect(classCustomPlot, &myQCustomPlot::signalAddedPoint, classSettings, &settings::slotAddedPoint);
+
 }

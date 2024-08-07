@@ -30,7 +30,7 @@ private:
      * \brief custom class objects
      */
     customize*   ClassCustomize;
-    QCustomPlot* ClassNewWindowCustomPlot;
+    QCustomPlot* ClassNewFullCustomPlot;
 
     /*!
      * \brief Point selection interaction handler
@@ -40,25 +40,47 @@ private:
     /*!
      * \brief Introduce a delay (e.g., 3 seconds)
      */
-    int millisecond = 3000;
+    int millisecond = 500;
 
     /*!
      Calculate the difference between two points on a plot
     */
-    double firstX    = 0;
-    double firstY    = 0;
-    double secondX   = 0;
-    double secondY   = 0;
-    int deltaCounter = 0;
+    double firstX;
+    double firstY;
+    double secondX;
+    double secondY;
+    int deltaCounter;
 
-    //
     /*!
      * \brief Array of double values to store plot coordinates
      */
     QVector<double> qVectorX;
     QVector<double> qVectorY;
+
+    /*!
+     * \brief Calculate and emit point difference (delta)
+     */
+    double deltaX;
+    double deltaY;
+
+
+    QAction* actReverse;
+    QAction* actNewWindow;
+    QAction* actExportToExcel;
+    QAction* actImportFromExcel;
+    QMenu *menuQCustopmPlotContextMenu;
+
+
+    QWidget *widgetFullWindow;
 /***********************************************************/
 //Functions
+
+
+    /*!
+     * \brief Assign initial values to variables
+     */
+    void initVariables();
+
 
     /*!
      * \brief Instantiate custom class objects
@@ -68,7 +90,7 @@ private:
     /*!
      * \brief Instantiate QCustopmPlot class objects
      */
-    void initQCustomPlot();
+    QCustomPlot* initQCustomPlot();
 
 
     /*!
@@ -89,7 +111,15 @@ private:
     void initTimer();
 
 
+    void initContextMenu();
+
+    /*!
+     * \brief Implement generic graph context menu
+     */
     void setContextMenu();
+
+
+    void initFullWindow();
 
 public:
 //Variables
@@ -208,14 +238,15 @@ private slots:
     void menuReverseXAxis();
 
     /*!
+     * \brief Read data from Excel file for plot
+     */
+    void importExcelToPlot();
+
+    /*!
      * \brief Write plot data to Excel format
      */
     void exportPlotToExcel();
 
-    /*!
-     * \brief Read data from Excel file for plot
-     */
-    void importExcelToPlot();
 
     /*!
      * \brief Maximize plot window and freeze data input
@@ -237,6 +268,11 @@ signals:
      * \brief Context menu option to trigger x-axis inversion and GUI update
      */
     void signalReverseXAxis();
+
+    /*!
+     * \brief Signal point added event
+     */
+    void signalAddedPoint();
 };
 
 #endif // MYQCUSTOMPLOT_H
