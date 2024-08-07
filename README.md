@@ -1,8 +1,11 @@
-### QCustomPlot Based Qt Application
-## **Description:**
-This project is a Qt application that utilizes the QCustomPlot library for creating interactive data visualizations. It focuses on clean code and efficient GUI development using Qt's runtime features. This project is ideal for developers interested in exploring and learning how to create data visualizations with Qt and QCustomPlot.
+## QCustomPlot Based Qt Application
 --------------------------
-## Features:
+## **Description:**
+This project is a Qt application that utilizes the QCustomPlot library for creating interactive data visualizations. 
+It focuses on clean code and efficient GUI development using Qt's runtime features. 
+This project is ideal for developers interested in exploring and learning how to create data visualizations with Qt and QCustomPlot.
+--------------------------
+## **Features:**
 
 * **Data Generation and Plotting:**
     * Generate random data for visualization
