@@ -9,18 +9,18 @@ maniWindow::maniWindow(QWidget *parent) : QWidget(parent)
 
 void maniWindow::init_classes()
 {
-    classCustomPlot   = myQCustomPlot::getInstance();
-    classSettings     = settings::getInstance();
-    classZoomSettings = zoomSettings::getInstance();
+    ClassCustomPlot   = myQCustomPlot::getInstance();
+    ClassSettings     = settings::getInstance();
+    ClassZoomSettings = zoomSettings::getInstance();
 }
 
 void maniWindow::set_ftom()
 {
     QGridLayout* grl = new QGridLayout();
 
-    grl->addWidget(classCustomPlot->ClassCustomPlot, 0, 0, 2, 1);
-    grl->addWidget(classSettings->grbForm, 0, 1);
-    grl->addWidget(classZoomSettings->grbForm, 1, 1);
+    grl->addWidget(ClassCustomPlot->ClassCustomPlot, 0, 0, 2, 1);
+    grl->addWidget(ClassSettings->grbForm, 0, 1);
+    grl->addWidget(ClassZoomSettings->grbForm, 1, 1);
 
     this->setLayout(grl);
 

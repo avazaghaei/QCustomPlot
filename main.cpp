@@ -5,10 +5,11 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    Process* p = new Process;
-//    window ww;
-//    ww.show();
-    maniWindow* w = new maniWindow;
-    w->show();
+
+    Process* ClassProcess = new Process;
+
+    maniWindow* ClassMainWindow = new maniWindow;
+    ClassMainWindow->show();
+
     return a.exec();
 }

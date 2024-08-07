@@ -17,6 +17,7 @@ settings::settings()
     init_radioButtons();
     init_pushButtons();
     init_groupBoxes();
+
     set_form();
     set_connections();
 }
@@ -29,12 +30,12 @@ void settings::init_classes()
 
 void settings::init_labels()
 {
-    lblYaxisPlacement                = new QLabel("Y-axis Placement:");
-    lblScalingMode                   = new QLabel("Scaling Mode:");
-    lblXaxisRange                    = new QLabel("X-axis Range:");
-    lblYaxisRange                    = new QLabel("Y-axis Range:");
-    lblDeltaX                        = new QLabel("Delta X:");
-    lblDeltaY                        = new QLabel("Delta Y:");
+    lblYaxisPlacement = new QLabel("Y-axis Placement:");
+    lblScalingMode    = new QLabel("Scaling Mode:");
+    lblXaxisRange     = new QLabel("X-axis Range:");
+    lblYaxisRange     = new QLabel("Y-axis Range:");
+    lblDeltaX         = new QLabel("Delta X:");
+    lblDeltaY         = new QLabel("Delta Y:");
 
     const int n = 6;
     QLabel* lstLabels[n] =
@@ -57,7 +58,7 @@ void settings::init_labels()
 void settings::init_checkBoxes()
 {
     chkbCustomTicks  = new QCheckBox("Custom Ticks");
-    chkbFixDisplay   = new QCheckBox("Fix Display of Value");
+    chkbFixDisplay   = new QCheckBox("Enable point selection mode");
     chkbReverseXaxis = new QCheckBox("Reverse x axis");
 
     const int n = 3;
@@ -80,13 +81,13 @@ void settings::init_checkBoxes()
 
 void settings::init_spinBoxes()
 {
-    dsbMaximumX    = new QDoubleSpinBox;
-    dsbMinimumX    = new QDoubleSpinBox;
-    dsbMaximumY    = new QDoubleSpinBox;
-    dsbMinimumY    = new QDoubleSpinBox;
-    sbCustomTicks  = new QSpinBox;
-    sbWidth        = new QSpinBox;
-    sbHeight       = new QSpinBox;
+    dsbMaximumX   = new QDoubleSpinBox;
+    dsbMinimumX   = new QDoubleSpinBox;
+    dsbMaximumY   = new QDoubleSpinBox;
+    dsbMinimumY   = new QDoubleSpinBox;
+    sbCustomTicks = new QSpinBox;
+    sbWidth       = new QSpinBox;
+    sbHeight      = new QSpinBox;
 
     const int nn = 3;
     QSpinBox* lstSpinBoxes[nn] =
@@ -133,13 +134,13 @@ void settings::init_spinBoxes()
 
 void settings::init_radioButtons()
 {
-    rdBtnLeftAxis      = new QRadioButton("Left");
-    rdBtnRightAxis     = new QRadioButton("Right");
-    rdBtnAutoScale = new QRadioButton("Auto Scale");
+    rdBtnLeftAxis    = new QRadioButton("Left");
+    rdBtnRightAxis   = new QRadioButton("Right");
+    rdBtnAutoScale   = new QRadioButton("Auto Scale");
     rdBtnCustomScale = new QRadioButton("Custom Scale");
 
     QButtonGroup *rdBtnGroupPlacement = new QButtonGroup();
-    QButtonGroup *rdBtnGroupScale    = new QButtonGroup();
+    QButtonGroup *rdBtnGroupScale     = new QButtonGroup();
 
     rdBtnGroupPlacement->addButton(rdBtnLeftAxis);
     rdBtnGroupPlacement->addButton(rdBtnRightAxis);
@@ -197,7 +198,7 @@ void settings::set_form()
 
     grl->addWidget(lblScalingMode    , 1, 0);
     grl->addWidget(rdBtnAutoScale    , 1, 1);
-    grl->addWidget(rdBtnCustomScale    , 1, 2);
+    grl->addWidget(rdBtnCustomScale  , 1, 2);
 
     grl->addWidget(lblXaxisRange     , 2, 0);
     grl->addWidget(dsbMinimumX       , 2, 1);
@@ -226,31 +227,36 @@ void settings::set_form()
 
 void settings::set_connections()
 {
-    connect(rdBtnRightAxis , &QRadioButton::clicked, this, &settings::signalRightYAxis);
-    connect(rdBtnLeftAxis , &QRadioButton::clicked, this, &settings::signalLeftYAxis);
+    {
+        connect(rdBtnRightAxis, &QRadioButton::clicked, this, &settings::signalRightYAxis);
+        connect(rdBtnLeftAxis,  &QRadioButton::clicked, this, &settings::signalLeftYAxis);
+    }
+    {
+        connect(rdBtnCustomScale , &QRadioButton::clicked, this, &settings::slotRadioButtonCustomScale);
+        connect(rdBtnAutoScale,    &QRadioButton::clicked, this, &settings::slotRadioButtonAutoScale);
 
-    connect(rdBtnCustomScale , &QRadioButton::clicked, this, &settings::slotRadioButtonCustomScale);
-
-    connect(dsbMinimumX       , SIGNAL(valueChanged(double)), this, SLOT(slotSpinBox()));
-    connect(dsbMaximumX       , SIGNAL(valueChanged(double)), this, SLOT(slotSpinBox()));
-    connect(dsbMinimumY       , SIGNAL(valueChanged(double)), this, SLOT(slotSpinBox()));
-    connect(dsbMaximumY       , SIGNAL(valueChanged(double)), this, SLOT(slotSpinBox()));
-
-    connect(rdBtnAutoScale , &QRadioButton::clicked, this, &settings::slotRadioButtonAutoScale);
-
-    //custom Ticks
-    connect(chkbCustomTicks   , &QCheckBox::clicked        , this, &settings::slotSetTicks);
-    connect(sbCustomTicks     , SIGNAL(valueChanged(int)), this, SLOT(slotSetTicks()));
-
-    //save Image
-    connect(btnSavePlotImage   , &QCheckBox::clicked        , this, &settings::slotSavePlotImage);
-
-    //reverse x axis
-    connect(chkbReverseXaxis   , &QCheckBox::clicked        , this, &settings::slotReverseXAxis);
-
-    //fix display
-    connect(chkbFixDisplay   , &QCheckBox::clicked        , this, &settings::signalFixDisplay);
-
+        connect(dsbMinimumX, SIGNAL(valueChanged(double)), this, SLOT(slotSpinBox()));
+        connect(dsbMaximumX, SIGNAL(valueChanged(double)), this, SLOT(slotSpinBox()));
+        connect(dsbMinimumY, SIGNAL(valueChanged(double)), this, SLOT(slotSpinBox()));
+        connect(dsbMaximumY, SIGNAL(valueChanged(double)), this, SLOT(slotSpinBox()));
+    }
+    {
+        //custom Ticks
+        connect(chkbCustomTicks   , &QCheckBox::clicked,       this, &settings::slotSetTicks);
+        connect(sbCustomTicks     , SIGNAL(valueChanged(int)), this, SLOT(slotSetTicks()));
+    }
+    {
+        //save Image
+        connect(btnSavePlotImage   , &QCheckBox::clicked, this, &settings::slotSavePlotImage);
+    }
+    {
+        //reverse x-axis
+        connect(chkbReverseXaxis   , &QCheckBox::clicked, this, &settings::slotReverseXAxis);
+    }
+    {
+        //Enable point selection mode
+        connect(chkbFixDisplay   , &QCheckBox::clicked, this, &settings::signalFixDisplay);
+    }
 }
 
 void settings::slotRadioButtonCustomScale()
