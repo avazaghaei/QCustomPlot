@@ -3,7 +3,7 @@ This Qt C++ application leverages the QCustomPlot library to create dynamic and 
 
 The application prioritizes code clarity and efficiency through the exclusive use of code-based GUI development. This approach fosters clean code practices, increased reusability, and accelerated development cycles compared to traditional drag-and-drop design methods. However, the current fixed-size layout presents limitations that will be addressed in future iterations to explore dynamic layout solutions and provide a comprehensive comparison of different approaches.
 ## **Features:**
-#### QCustomPlot	
+#### **QCustomPlot**	
 * **Data Handling:**
 
     * Generate random data: Create synthetic data for testing and visualization purposes.
@@ -26,7 +26,7 @@ The application prioritizes code clarity and efficiency through the exclusive us
 
     * Custom QCustomPlot modifications: Enhancements to the underlying library for specialized visualizations or performance optimizations.
 
-#### Code-Based GUI Development Advantages
+#### **Code-Based GUI Development Advantages**
 * **Flexibility and customization:**
 
 	* Easily modify and adapt the GUI to meet changing requirements without being constrained by visual design tools.
@@ -39,7 +39,7 @@ The application prioritizes code clarity and efficiency through the exclusive us
 
 	* Streamlined GUI development process leading to faster time-to-market.
 	
-* **RVersion control integration:**
+* **Version control integration:**
 
 	* Seamlessly manage GUI changes alongside code changes using version control systems.
 	
@@ -65,8 +65,13 @@ The application prioritizes code clarity and efficiency through the exclusive us
 ## **Prerequisites:**
 * Qt framework:
 	
-	* This applicarion is cross-platform so you can run it in any opirating systems like, Linux, Windowsm, etc.
-	* You can run it in boteh Debug, and Release mode.
+	* You can run the application with MSVC and MINGW kits.
+	* ou can run the application in both Debug and Release mode
+
+* Operating System:
+	
+	* This application is designed to be cross-platform compatible, allowing you to run it on various operating systems.
+
 	
 ## **Installation:**
 
